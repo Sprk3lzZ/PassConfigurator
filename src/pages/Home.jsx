@@ -12,7 +12,7 @@ export default function Home() {
   const handleGeneratePass = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:3001/generate-pass",
+        "https://passconfiguratorservice.onrender.com/generate-pass",
         {
           firstName,
           lastName,
