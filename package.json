@@ -22,7 +22,8 @@
     "start": "HOST=0.0.0.0 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postinstall": "wget -O passkitgenerator https://github.com/alexandercerutti/passkitgenerator/releases/download/v1.5.0/passkitgenerator-linux && chmod +x passkitgenerator"
   },
   "eslintConfig": {
     "extends": [

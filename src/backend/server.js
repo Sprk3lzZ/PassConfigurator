@@ -48,18 +48,16 @@ app.post("/generate-pass", async (req, res) => {
     fs.writeFileSync(passJsonPath, JSON.stringify(passData, null, 2));
 
     const pkpassFile = path.join(__dirname, "boarding-pass.pkpass");
-    const signpassPath = path.join(__dirname, "signpass");
+    const signpassPath = path.join(__dirname, "passkitgenerator");
     exec(
       `${signpassPath} -p ${passFolder} -o ${pkpassFile}`,
       (error, stdout, stderr) => {
         if (error) {
           console.error("❌ Erreur lors de la signature du pass :", error);
-          return res
-            .status(500)
-            .json({
-              message: "Erreur lors de la signature du pass",
-              error: stderr,
-            });
+          return res.status(500).json({
+            message: "Erreur lors de la signature du pass",
+            error: stderr,
+          });
         }
 
         console.log("✅ Pass généré avec succès :", stdout);
